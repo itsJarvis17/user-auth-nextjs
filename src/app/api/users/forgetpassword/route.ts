@@ -32,7 +32,11 @@ export async function POST(req: NextRequest) {
       { message: "Email sent successfully!" },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     console.log("Something went wrong while logging in user");
+    return NextResponse.json(
+      { error: `Something went wrong ${error.message}` },
+      { status: 500 }
+    );
   }
 }

@@ -37,9 +37,9 @@ export async function POST(req: NextRequest) {
       { message: "Password updated successfully!" },
       { status: 200 }
     );
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json(
-      { error: "Something went wrong while updating password" },
+      { error: `Something went wrong ${error.message}` },
       { status: 500 }
     );
   }

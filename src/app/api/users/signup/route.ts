@@ -2,10 +2,8 @@ import { connect } from "@/db/connect";
 import bcrypt from "bcryptjs";
 import User from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
-import mongoose from "mongoose";
 import sendEmail from "@/helper/mailerHelper";
 import emailTypes from "@/enums/emailTypes";
-import { useRouter } from "next/navigation";
 //Make connection to MongoDB
 connect();
 export async function POST(req: NextRequest) {

@@ -45,7 +45,11 @@ export async function POST(req: NextRequest) {
     );
     response.cookies.set("jwt-token", token, { httpOnly: true, secure: true });
     return response;
-  } catch (error) {
+  } catch (error: any) {
     console.log("Something went wrong while logging in user");
+    return NextResponse.json(
+      { error: `Something went wrong ${error.message}` },
+      { status: 500 }
+    );
   }
 }

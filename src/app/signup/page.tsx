@@ -2,7 +2,7 @@
 import Axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +13,6 @@ function SignupPage() {
     fullName: "",
   });
   const router = useRouter();
-  const [buttonDisbaled, setButtonDisabled] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const onSignup = async (e: any) => {
     try {
@@ -110,7 +109,6 @@ function SignupPage() {
             onClick={onSignup}
             type="submit"
             className="p-2 border-2 mb-1.5 bg-blue-500 rounded-lg"
-            disabled={buttonDisbaled}
           >
             Sign in
           </button>

@@ -1,7 +1,6 @@
 "use client";
 import axios from "axios";
-import React from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 // Create a page component for forget password
 // Create an API for forget password
@@ -11,7 +10,7 @@ import { toast, ToastContainer } from "react-toastify";
 // Based on this validate token and update password field encrypt and save it
 // Return response to user
 function page() {
-  const [emailId, setEmailId] = React.useState("");
+  const [emailId, setEmailId] = useState("");
 
   const onResetClick = async () => {
     try {

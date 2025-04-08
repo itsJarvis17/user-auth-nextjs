@@ -5,7 +5,7 @@ export function getUserFromAccessToken(request: NextRequest) {
     const token = request.cookies.get("jwt-token")?.value || null;
     const decodedToken: any = jwt.verify(token!, process.env.SECRET_KEY!);
     return decodedToken._id;
-  } catch (error) {
-    throw new Error("Invalid token");
+  } catch (error: any) {
+    throw new Error("Invalid token", error);
   }
 }

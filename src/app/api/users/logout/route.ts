@@ -8,9 +8,9 @@ export async function GET() {
     );
     response.cookies.delete("jwt-token");
     return response;
-  } catch (error) {
+  } catch (error: any) {
     return NextResponse.json(
-      { message: "Something went wrong while logging out" },
+      { error: `Something went wrong ${error.message}` },
       { status: 500 }
     );
   }
